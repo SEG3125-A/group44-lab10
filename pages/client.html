@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head>
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' href='./client.css'>
+    <script type="module" src="../components/navbar/navbar.js"></script>
+    <script type="module" src="../components/checkbox/checkbox.js"></script>
+</head>
+
+<body>
+    <nav-bar page="client"></nav-bar>
+    <div class="main-outer">
+        <div class="main-inner">
+
+            <div class="section-header">
+                <div class="section-name">Client Information</div>
+                <div class="h-divider"></div>
+            </div>
+
+            <div class="field-name">
+                <div class="field-name-main">Food Preferences / Sensitivities</div>
+                <div class="field-name-hint">(select all that apply)</div>
+            </div>
+
+            <styled-checkbox name="gluten-free" label="Gluten Free"></styled-checkbox>
+            <styled-checkbox name="vegetarian" label="Vegetarian"></styled-checkbox>
+            <styled-checkbox name="lactose-intolerant" label="Lactose Intolerant"></styled-checkbox>
+            <styled-checkbox name="low-sugar" label="Low Sugar Diet"></styled-checkbox>
+
+        </div>
+    </div>
+</body>

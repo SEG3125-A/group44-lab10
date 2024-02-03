@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <script type="module" src="./components/navbar/navbar.js" defer></script>
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="./components/navbar/navbar.css">
+    <script type="module" src="./components/checkbox/checkbox.js"></script>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <nav-bar></nav-bar>
+  
+    <div class="main-outer">
+        <div class="main-inner">
+            
+            <!-- Tab content -->
+            <div id="Client" class="tabcontent">
+
+                <div class="section-header">
+                    <div class="section-name">Client Information</div>
+                    <div class="h-divider"></div>
+                </div>
+    
+                <div class="field-name">
+                    <div class="field-name-main">Food Preferences / Sensitivities</div>
+                    <div class="field-name-hint">(select all that apply)</div>
+                </div>
+    
+                <styled-checkbox class="restriction" id="gluten-free" name="gluten-free" label="Gluten Free"></styled-checkbox>
+                <styled-checkbox class="restriction" id="vegetarian" name="vegetarian" label="Vegetarian"></styled-checkbox>
+                <styled-checkbox class="restriction" id="lactose-intolerant" name="lactose-intolerant" label="Lactose Intolerant"></styled-checkbox>
+                <styled-checkbox class="restriction" id="organic" name="organic" label="Organic Foods Only"></styled-checkbox>
+
+            </div>
+        
+            <div id="Shop" class="tabcontent">
+                
+                <div id="filtersContainer">
+                    <select name="SortOrderDropdown" id="sort-order-dropdown">
+                        <option value = "alphabetical-accending">Names A to Z</option>
+                        <option value = "alphabetical-decending">Names Z to A</option>
+                        <option value = "price-accending">Priced Low to High</option>
+                        <option value = "price-decending">Priced High to Low</option>
+                    </select>
+                    Apply User Dietary Restrictions
+                <label class="switch">
+                    <input type="checkbox" id="applyRestrictionsFlag" name="applyRestrictionsCheckbox" value="restrictionsFlag" checked></input>
+                    <span class="togglesSlider round"></span>
+                </label>
+                    <div id="">
+                        <p id="sliderValue">100</p>
+                        <div class="sliderContainer">
+                            <input type="range" min='1' max="100" value="100" class="slider" id="rangeSlider">
+                        </div>
+                    </div>
+                    
+                    <button id="applyFilters" type="button" class="products-page-button">
+                        Apply
+                    </button>
+                </div>
+
+                <div id="products-outer">
+                    <h3>We Offer:</h3>
+
+                    <div id="visible-products"></div>
+                </div>
+            </div>
+ 
+            <div id="Product" class="tabcontent">
+                <div class="section-header">
+                    <div id='product-name' class="section-name">Product Name</div>
+                    <div class="h-divider"></div>
+                </div>
+                <div id="current-product"></div>
+                <button id="add-product" type="button" class="add-product">
+                    Add to cart
+                </button>
+            </div>
+            
+            <div id="Cart" class="tabcontent">
+                <div id="cartContent"></div>
+                <button id="clearCart" type="button" class="products-page-button">
+                    Clear Cart
+                </button>
+            </div>
+            
+        </div>
+    </div>
+
+    <p class="signature">Website designed by Group 44 (Andrew, Lisa, Zechen)</p>
+    
+    <script type="module" src="scripts/main.js"></script>
+</body>
+</html> 

@@ -1,0 +1,68 @@
+.navbar {
+    font-family: 'Georgia, serif';
+    font-style: normal;
+    position: relative;
+    width: calc(100% - 48px);
+    height: 80px;
+    background-color: rgb(29, 29, 29);
+    box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.12);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 0px 24px;
+    flex-wrap: nowrap;
+}
+.left {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    gap: 8px;
+    padding: 0px;
+    flex-wrap: nowrap;
+
+    color: rgb(111, 19, 11);
+    font-size: 34px;
+    font-weight: 800;
+}
+.right {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    gap: 0px 24px;
+    padding: 0px;
+    flex-wrap: nowrap;
+}
+.barbershop-icon {
+    width: 50px !important;
+}
+.products {
+    color: rgb(108, 40, 34);
+    width: 97px;
+    height: 31px;
+    font-size: 24px;
+    font-weight: 500;
+    text-decoration: none;
+    
+    &:hover {
+        color: rgb(111, 19, 11);
+        cursor: pointer;
+    }
+}
+.page-icon {
+    color: rgb(108, 40, 34);
+    fill: rgb(197, 186, 185);
+
+    &:hover {
+        color: rgb(111, 19, 11);
+        cursor: pointer;
+    }
+}
+.active {
+    color: rgb(111, 19, 11);
+}
