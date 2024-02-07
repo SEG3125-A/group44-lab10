@@ -6,14 +6,14 @@
 ### 3. Link to the GitHub repository: https://github.com/SEG3125-A/group44-lab4
 ### 4. Each member's contribution:
 
->Andrew Clarke
-* 
-
 >Lisa Korolyov
 * 
 
 >Zechen Zhou
-* 
+* Restyled service options and prices
+* Added staff options for each service
+* Added shop's address
+* Implemented date and time picker
 
 ### 5. Snapshots of the website: 
   ![](/Docs/Images/snapshot1.png)
