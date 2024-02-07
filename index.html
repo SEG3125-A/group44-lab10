@@ -9,6 +9,7 @@
     <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
 
     <script src="./assets/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/jquery-3.2.1.slim.min.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-light bg-light">
@@ -22,84 +23,137 @@
         </div>
     </nav>
 
-    <nav-bar></nav-bar>
-  
-    <div class="main-outer">
-        <div class="main-inner">
-            
-            <!-- Tab content -->
-            <div id="Client" class="tabcontent">
+    <div class="container container-header">
+        <h4>Services</h4>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="./assets/color.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Color - $50.00</h5>
+                        <p class="card-text">Hair colouring is the practice of changing the colour of hair. (e.g., to cover gray hair, to change to a colour regarded as more fashionable or desirable, or to restore the original hair colour after it has been discoloured by hairdressing processes or sun.</p>
+                        
+                        <p>
+                            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#colorHairdresser" aria-expanded="false" aria-controls="collapseExample">
+                              Choose hairdressers
+                            </button>
+                        </p>
+                        <div class="collapse" id="colorHairdresser">
+                            <div class="card card-body">
 
-                <div class="section-header">
-                    <div class="section-name">Client Information</div>
-                    <div class="h-divider"></div>
-                </div>
-    
-                <div class="field-name">
-                    <div class="field-name-main">Food Preferences / Sensitivities</div>
-                    <div class="field-name-hint">(select all that apply)</div>
-                </div>
-    
-                <styled-checkbox class="restriction" id="gluten-free" name="gluten-free" label="Gluten Free"></styled-checkbox>
-                <styled-checkbox class="restriction" id="vegetarian" name="vegetarian" label="Vegetarian"></styled-checkbox>
-                <styled-checkbox class="restriction" id="lactose-intolerant" name="lactose-intolerant" label="Lactose Intolerant"></styled-checkbox>
-                <styled-checkbox class="restriction" id="organic" name="organic" label="Organic Foods Only"></styled-checkbox>
-
-            </div>
-        
-            <div id="Shop" class="tabcontent">
-                
-                <div id="filtersContainer">
-                    <select name="SortOrderDropdown" id="sort-order-dropdown">
-                        <option value = "alphabetical-accending">Names A to Z</option>
-                        <option value = "alphabetical-decending">Names Z to A</option>
-                        <option value = "price-accending">Priced Low to High</option>
-                        <option value = "price-decending">Priced High to Low</option>
-                    </select>
-                    Apply User Dietary Restrictions
-                <label class="switch">
-                    <input type="checkbox" id="applyRestrictionsFlag" name="applyRestrictionsCheckbox" value="restrictionsFlag" checked></input>
-                    <span class="togglesSlider round"></span>
-                </label>
-                    <div id="">
-                        <p id="sliderValue">100</p>
-                        <div class="sliderContainer">
-                            <input type="range" min='1' max="100" value="100" class="slider" id="rangeSlider">
+                                <div class="list-group">
+                                    <label class="list-group-item">
+                                      <input class="form-check-input me-1" type="radio" name="colorHairdresser" value="">
+                                      Alice (Expert) +$30.00
+                                    </label>
+                                    <label class="list-group-item">
+                                      <input class="form-check-input me-1" type="radio" name="colorHairdresser" value="">
+                                      Bob (Intermediate) +$10.00
+                                    </label>
+                                    <label class="list-group-item">
+                                      <input class="form-check-input me-1" type="radio" name="colorHairdresser" value="">
+                                      Charlie (Junior) +$0.00
+                                    </label>
+                                    <label class="list-group-item">
+                                      <input class="form-check-input me-1" type="radio" name="colorHairdresser" value="">
+                                      None
+                                    </label>
+                                </div>
+                            </div>
                         </div>
+                        
                     </div>
-                    
-                    <button id="applyFilters" type="button" class="products-page-button">
-                        Apply
-                    </button>
                 </div>
+            </div>
 
-                <div id="products-outer">
-                    <h3>We Offer:</h3>
+            <div class="col-sm-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="./assets/cut.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Cut - $30.00</h5>
+                        <p class="card-text">Hair cutting or hair trimming is intended to create or maintain a specific shape and form.</p>
+                        
+                        <p>
+                            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#cutHairdresser" aria-expanded="false" aria-controls="collapseExample">
+                              Choose hairdressers
+                            </button>
+                        </p>
+                        <div class="collapse" id="cutHairdresser">
+                            <div class="card card-body">
 
-                    <div id="visible-products"></div>
+                                <div class="list-group">
+                                    <label class="list-group-item">
+                                      <input class="form-check-input me-1" type="radio" name="cutHairdresser" value="">
+                                      Alice (Expert) +$30.00
+                                    </label>
+                                    <label class="list-group-item">
+                                      <input class="form-check-input me-1" type="radio" name="cutHairdresser" value="">
+                                      Bob (Intermediate) +$10.00
+                                    </label>
+                                    <label class="list-group-item">
+                                      <input class="form-check-input me-1" type="radio" name="cutHairdresser" value="">
+                                      Charlie (Junior) +$0.00
+                                    </label>
+                                    <label class="list-group-item">
+                                      <input class="form-check-input me-1" type="radio" name="cutHairdresser" value="">
+                                      None
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
- 
-            <div id="Product" class="tabcontent">
-                <div class="section-header">
-                    <div id='product-name' class="section-name">Product Name</div>
-                    <div class="h-divider"></div>
+
+            <div class="col-sm-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="./assets/treatment.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Treatment - $100.00</h5>
+                        <p class="card-text">Treat your hair with care by indulging in a professional deep conditioner or reparative treatment.</p>
+                        
+                        <p>
+                            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#treatmentHairdresser" aria-expanded="false" aria-controls="collapseExample">
+                              Choose hairdressers
+                            </button>
+                        </p>
+                        <div class="collapse" id="treatmentHairdresser">
+                            <div class="card card-body">
+
+                                <div class="list-group">
+                                    <label class="list-group-item">
+                                      <input class="form-check-input me-1" type="radio" name="treatmentHairdresser" value="">
+                                      Alice (Expert) +$30.00
+                                    </label>
+                                    <label class="list-group-item">
+                                      <input class="form-check-input me-1" type="radio" name="treatmentHairdresser" value="">
+                                      Bob (Intermediate) +$10.00
+                                    </label>
+                                    <label class="list-group-item">
+                                      <input class="form-check-input me-1" type="radio" name="treatmentHairdresser" value="">
+                                      Charlie (Junior) +$0.00
+                                    </label>
+                                    <label class="list-group-item">
+                                      <input class="form-check-input me-1" type="radio" name="treatmentHairdresser" value="">
+                                      None
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-                <div id="current-product"></div>
-                <button id="add-product" type="button" class="add-product">
-                    Add to cart
-                </button>
             </div>
-            
-            <div id="Cart" class="tabcontent">
-                <div id="cartContent"></div>
-                <button id="clearCart" type="button" class="products-page-button">
-                    Clear Cart
-                </button>
-            </div>
-            
         </div>
     </div>
+
+    <div class="container body-font">
+        <h3>Our Location</h3>
+        123 ABC street, Ottawa, Canada
+    </div>
+
+    BOOK AN APPOINTMENT
 
     <p class="signature">Website designed by Group 44 (Lisa, Zechen)</p>
     
