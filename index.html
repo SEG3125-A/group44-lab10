@@ -17,95 +17,74 @@
     <body>
         <nav class="navbar navbar-light bg-light">
             <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <div class="navbar-font">
-                    <!-- https://www.flaticon.com/free-icon/hairdresser_13987026?term=baber&page=1&position=95&origin=search&related_id=13987026 -->
-                    <img src="./assets/logo.png" alt="" width="50" height="50">
-                    Babershop
-                </div>
-            </a>
+                <a class="navbar-brand" style="position: relative" href="#">
+                    <div class="navbar-font">
+                        <!-- https://www.flaticon.com/free-icon/hairdresser_13987026?term=baber&page=1&position=95&origin=search&related_id=13987026 -->
+                        <img src="./assets/logo.png" alt="" width="50" height="50">
+                        <span id="pageTitle">Laurier Babershop</span>
+                    </div>
+
+                </a>
             </div>
         </nav>
 
-        <div class="container container-header">
-            <h4>Services</h4>
+        <div class="container container-header mt-3">
+            <p class="h4 mb-3 heading-text">Our Services:</p>
             <div class="row">
                 <div class="col-sm-4">
                     <div class="card" style="width: 18rem;">
-                        <img src="./assets/color.jpg" class="card-img-top" alt="...">
+                        <img src="./assets/color.jpg" class="card-img-top" alt="Color image">
                         <div class="card-body">
                             <h5 class="card-title">Color - $50.00</h5>
-                            <p class="card-text">Hair colouring is the practice of changing the colour of hair. (e.g., to cover gray hair, to change to a colour regarded as more fashionable or desirable, or to restore the original hair colour after it has been discoloured by hairdressing processes or sun.</p>
-                            
-                            <p>
-                                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#colorHairdresser" aria-expanded="false" aria-controls="collapseExample">
+                            <p class="card-text" style="font-size: 15px;">Choose from 30+ different color options and be confident that your hair will remain strong as ever.</p>
+                            <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#colorHairdresser" aria-expanded="false" aria-controls="collapseExample">
                                 Choose hairdressers
-                                </button>
-                            </p>
+                            </button>
                             <div class="collapse" id="colorHairdresser">
-                                <div class="card card-body">
-
-                                    <div class="list-group">
-                                        <label class="list-group-item">
-                                        <input class="form-check-input me-1" type="radio" name="colorHairdresser" value="">
-                                        Alice (Expert) +$30.00
-                                        </label>
-                                        <label class="list-group-item">
-                                        <input class="form-check-input me-1" type="radio" name="colorHairdresser" value="">
-                                        Bob (Intermediate) +$10.00
-                                        </label>
-                                        <label class="list-group-item">
-                                        <input class="form-check-input me-1" type="radio" name="colorHairdresser" value="">
-                                        Charlie (Junior) +$0.00
-                                        </label>
-                                        <label class="list-group-item">
-                                        <input class="form-check-input me-1" type="radio" name="colorHairdresser" value="">
-                                        None
-                                        </label>
-                                    </div>
+                                <div class="list-group mt-2" style="font-size: 15px;">
+                                    <label class="list-group-item" for="aliceColor">
+                                    <input class="form-check-input me-1" type="radio" name="aliceColor">
+                                    Alice (Expert) +$30.00
+                                    </label>
+                                    <label class="list-group-item" for="bobColor">
+                                    <input class="form-check-input me-1" type="radio" name="bobColor">
+                                    Bob (Intermediate) +$10.00
+                                    </label>
+                                    <label class="list-group-item" for="charlieColor">
+                                    <input class="form-check-input me-1" type="radio" name="charlieColor">
+                                    Charlie (Junior)
+                                    </label>
                                 </div>
                             </div>
-                            
                         </div>
                     </div>
                 </div>
 
                 <div class="col-sm-4">
                     <div class="card" style="width: 18rem;">
-                        <img src="./assets/cut.jpg" class="card-img-top" alt="...">
+                        <img src="./assets/cut.jpg" class="card-img-top" alt="Cut image">
                         <div class="card-body">
                             <h5 class="card-title">Cut - $30.00</h5>
-                            <p class="card-text">Hair cutting or hair trimming is intended to create or maintain a specific shape and form.</p>
-                            
-                            <p>
-                                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#cutHairdresser" aria-expanded="false" aria-controls="collapseExample">
+                            <p class="card-text" style="font-size: 15px;">We offer cuts for hair of any length or texture and can provide unlimited styles.</p>
+                            <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#cutHairdresser" aria-expanded="false" aria-controls="collapseExample">
                                 Choose hairdressers
-                                </button>
-                            </p>
+                            </button>
                             <div class="collapse" id="cutHairdresser">
-                                <div class="card card-body">
-
-                                    <div class="list-group">
-                                        <label class="list-group-item">
-                                        <input class="form-check-input me-1" type="radio" name="cutHairdresser" value="">
-                                        Alice (Expert) +$30.00
-                                        </label>
-                                        <label class="list-group-item">
-                                        <input class="form-check-input me-1" type="radio" name="cutHairdresser" value="">
-                                        Bob (Intermediate) +$10.00
-                                        </label>
-                                        <label class="list-group-item">
-                                        <input class="form-check-input me-1" type="radio" name="cutHairdresser" value="">
-                                        Charlie (Junior) +$0.00
-                                        </label>
-                                        <label class="list-group-item">
-                                        <input class="form-check-input me-1" type="radio" name="cutHairdresser" value="">
-                                        None
-                                        </label>
-                                    </div>
+                                <div class="list-group mt-2" style="font-size: 15px;">
+                                    <label class="list-group-item" for="aliceCut">
+                                    <input class="form-check-input me-1" type="radio" name="aliceCut">
+                                    Alice (Expert) +$30.00
+                                    </label>
+                                    <label class="list-group-item" for="bobCut">
+                                    <input class="form-check-input me-1" type="radio" name="bobCut">
+                                    Bob (Intermediate) +$10.00
+                                    </label>
+                                    <label class="list-group-item" for="charlieCut">
+                                    <input class="form-check-input me-1" type="radio" name="charlieCut">
+                                    Charlie (Junior)
+                                    </label>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -115,64 +94,163 @@
                         <img src="./assets/treatment.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Treatment - $100.00</h5>
-                            <p class="card-text">Treat your hair with care by indulging in a professional deep conditioner or reparative treatment.</p>
-                            
-                            <p>
-                                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#treatmentHairdresser" aria-expanded="false" aria-controls="collapseExample">
+                            <p class="card-text" style="font-size: 15px;">We offer deep conditioning treatments, as well as bond repair treatments.</p>
+                            <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#treatmentHairdresser" aria-expanded="false" aria-controls="collapseExample">
                                 Choose hairdressers
-                                </button>
-                            </p>
+                            </button>
                             <div class="collapse" id="treatmentHairdresser">
-                                <div class="card card-body">
-
-                                    <div class="list-group">
-                                        <label class="list-group-item">
-                                        <input class="form-check-input me-1" type="radio" name="treatmentHairdresser" value="">
-                                        Alice (Expert) +$30.00
-                                        </label>
-                                        <label class="list-group-item">
-                                        <input class="form-check-input me-1" type="radio" name="treatmentHairdresser" value="">
-                                        Bob (Intermediate) +$10.00
-                                        </label>
-                                        <label class="list-group-item">
-                                        <input class="form-check-input me-1" type="radio" name="treatmentHairdresser" value="">
-                                        Charlie (Junior) +$0.00
-                                        </label>
-                                        <label class="list-group-item">
-                                        <input class="form-check-input me-1" type="radio" name="treatmentHairdresser" value="">
-                                        None
-                                        </label>
-                                    </div>
+                                <div class="list-group mt-2" style="font-size: 15px;">
+                                    <label class="list-group-item" for="aliceTreatment">
+                                    <input class="form-check-input me-1" type="radio" name="aliceTreatment">
+                                    Alice (Expert) +$30.00
+                                    </label>
+                                    <label class="list-group-item" for="bobTreatment">
+                                    <input class="form-check-input me-1" type="radio" name="bobTreatment">
+                                    Bob (Intermediate) +$10.00
+                                    </label>
+                                    <label class="list-group-item" for="charlieTreatment">
+                                    <input class="form-check-input me-1" type="radio" name="charlieTreatment">
+                                    Charlie (Junior)
+                                    </label>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="container body-font">
-            <h4>Date and time</h4>
-            <p>
-                <div class="form-group row">
-                    <!-- <label for="dateTimeInput" class="col-2 col-form-label">Date and time</label> -->
-                    <div class="col-10">
-                        <input class="form-control" type="datetime-local" value="" id="dateTimeInput">
+        <div class="container mt-3">
+            <div class="form-group row">
+                <div style="width: max-content;">
+                    <label class="h6 heading-text" for="dateTimeInput">Select a date and time:</label>
+                    <input class="form-control" type="datetime-local" id="dateTimeInput" name="dateTimeInput">
+                </div>
+            </div>
+        </div>
+
+        <div class="container body-font mt-4">
+            <button type="button" id="bookAppointmentButton" data-bs-toggle="modal" data-bs-target="#appointmentModal" class="btn btn-primary">Book appointment</button>
+        </div><br>
+
+        <div id="appointmentModal" class="modal" tabindex="-1" role="dialog">
+            <div id="successToast" class="toast align-items-center text-white bg-success border-0 w-100" role="alert" data-animation="true" aria-live="assertive" aria-atomic="true">
+                <div class="toast-body text-center w-100 h6">
+                    Appointment booked successfully.
+                </div>
+            </div>
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <form class="needs-validation" id="appointmentForm" onsubmit="return false" novalidate>
+                        <div class="modal-header bg-light">
+                            <span class="modal-title h5">Confirm appointment</span>
+                        </div>
+                        <div class="modal-body">
+                            <label for="firstName" class="form-label">First name</label>
+                            <input type="text" id="firstName" class="form-control" style="text-transform: capitalize;" required>
+                            <div class="invalid-feedback">
+                                First name is required.
+                            </div><br>
+
+                            <label for="lastName" class="form-label">Last name</label>
+                            <input type="text" id="lastName" class="form-control" style="text-transform: capitalize;" required>
+                            <div class="invalid-feedback">
+                                Last name is required.
+                            </div><br>
+                            
+                            <label for="phone" class="form-label">Phone number</label>
+                            <input type="tel" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" maxlength="12" class="form-control" required data-bs-toggle="tooltip" data-bs-placement="top" title="Use format: 000-000-0000">
+                            <div class="invalid-feedback">
+                                Please enter a phone number in the format <em>000-000-0000</em>
+                            </div><br>
+
+                            <label for="email" class="form-label" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$">Email</label><!--regex pattern taken from w3schools.com-->
+                            <input type="email" id="email" class="form-control" required>
+                            <div class="invalid-feedback">
+                                Please enter a valid email.
+                            </div><br>
+                        </div>
+                        <div class="modal-footer">
+                            <button id="submitFormButton" class="btn btn-success" data-dismiss="alert">Confirm</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+          </div>
+
+        <div class="container mt-5">
+            <a href="#contact" class="btn btn-secondary w-100" data-bs-toggle="collapse" aria-expanded="false">About Us</a>
+            <div id="contact" class="collapse">
+                <div class="card">
+                    <div class="card-body">
+
+                        <strong>Location:</strong> <br>
+                        123 Laurier Ave, Ottawa, ON <br><br>
+
+                        <strong>Hours of operation:</strong> <br>
+                        <table>
+                            <tr>
+                                <td style="padding-right: 10px;">Mon</td>
+                                <td>10:00 - 18:00</td>
+                            </tr>
+                            <tr>
+                                <td style="padding-right: 10px;">Tue</td>
+                                <td>10:00 - 18:00</td>
+                            </tr>
+                            <tr>
+                                <td style="padding-right: 10px;">Wed</td>
+                                <td>10:00 - 18:00</td>
+                            </tr>
+                            <tr>
+                                <td style="padding-right: 10px;">Thu</td>
+                                <td>10:00 - 18:00</td>
+                            </tr>
+                            <tr>
+                                <td style="padding-right: 10px;">Fri</td>
+                                <td>10:00 - 17:00</td>
+                            </tr>
+                            <tr>
+                                <td style="padding-right: 10px;">Sat</td>
+                                <td>9:00 - 17:00</td>
+                            </tr>
+                            <tr>
+                                <td style="padding-right: 10px;">Sun</td>
+                                <td>Closed</td>
+                            </tr>
+                        </table><br>
+
+
+                        <strong>Phone:</strong><br>
+                        (613) 035-8365<br><br>
+
+                        <strong>Email:</strong><br>
+                        laurierbarber@email.com
                     </div>
                 </div>
-            </p>
+            </div>
         </div>
 
-        <div class="container body-font">
-            <h4>Our Location</h4>
-            <p>123 ABC street, Ottawa, Canada</p>
-        </div>
-
-        <div class="container body-font">
-            <button type="button" class="btn btn-primary">Book an Appointment</button>
-        </div>
-
-        <p class="signature">Website designed by Group 44 (Lisa, Zechen)</p>
+        <p class="signature mt-5">Website designed by Group 44 (Lisa, Zechen)</p>
     </body>
 </html> 
+
+<script>
+    var tooltip = document.querySelector('[data-bs-toggle="tooltip"]');
+    new bootstrap.Tooltip(tooltip);
+
+    var form = document.querySelector('.needs-validation');
+    var toastId = document.querySelector('.toast');
+    var toast = new bootstrap.Toast(toastId);
+
+    form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+        else {
+            toast.show();
+            setTimeout(() => {form.submit();}, 2000);
+        }
+        form.classList.add('was-validated');
+    }, false);
+</script>
