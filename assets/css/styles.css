@@ -20,3 +20,11 @@
     font-size: 18px;
     font-weight: 400;
 }
+
+.learn-more-button {
+    color: gray;
+}
+
+.learn-more-button:hover {
+    text-decoration: underline;
+}
