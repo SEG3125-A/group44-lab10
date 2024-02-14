@@ -1,4 +1,4 @@
-# group44-lab5
+# Lab 5 -- SEG3125
 
 ### 0. Link to this webpage: https://seg3125-a.github.io/group44-lab5/
 ### 1. Group number: 44
