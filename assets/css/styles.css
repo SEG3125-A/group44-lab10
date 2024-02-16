@@ -2,9 +2,10 @@
     color: rgb(9, 11, 55);
 }
 
+/* the font size is not apply for navbar-brand due to limitation of Bootstrap */
 .navbar-font {
     color: rgb(9, 11, 55);
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 500;
 }
 
@@ -15,10 +16,16 @@
     text-align: center;
 }
 
-.container-header{
+.container-header {
     padding: 1%;
     font-size: 18px;
     font-weight: 400;
+}
+
+/* Add some padding to the sections to account for the fixed-top navbar */
+.section {
+    /* Adjust this value based on the height of your navbar */
+    padding-top: 76px;
 }
 
 .learn-more-button {
