@@ -14,29 +14,37 @@
 
         <script src="./assets/js/jquery-3.2.1.slim.min.js"></script>
     </head>
-    <body>
-        <nav class="navbar navbar-light bg-light navbar-expand-md">
+
+    <!-- data-spy, data-target, and data-offset attributes are added to enable scrollspy. -->
+    <!-- To fix the issue where the fixed-top navbar covers content when navigating to a section -->
+    <body data-spy="scroll" data-target=".navbar data-offset=50">
+        <nav class="navbar navbar-font fixed-top navbar-light bg-light navbar-expand-md">
             <div class="container-fluid">
+                <!-- shop name and logo -->
                 <a class="navbar-brand navbar-font" style="position: relative" href="#">
                         <!-- https://www.flaticon.com/free-icon/hairdresser_13987026?term=baber&page=1&position=95&origin=search&related_id=13987026 -->
                         <img src="./assets/logo.png" alt="" width="50" height="50">
                         <span id="pageTitle">Laurier Babershop</span>
                 </a>
 
-                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <!-- navbar menus -->
+                <div class="collapse navbar-collapse justify-content-center" id="collapsibleNavbar">
                   <ul class="navbar-nav">
                     <li class="nav-item">
-                      <a class="nav-link" href="#bookAppointmentSection">Book an Appointment</a>
+                        <a class="nav-link" href="#OurService">Our Services</a>
+                      </li> 
+                    <li class="nav-item">
+                      <a class="nav-link" href="#BookAnAppointment">Book an Appointment</a>
                     </li> 
                     <li class="nav-item">
-                      <a class="nav-link" href="#aboutUsSection">About Us</a>
+                      <a class="nav-link" href="#AboutUs">About Us</a>
                     </li>
                  </ul>
                 </div>                
             </div>
         </nav>
-        <div class="container container-header mt-3">
-            <p class="h4 mb-3 heading-text">Our Services:</p>
+        <div id="OurService" class="container container-header mt-3 section">
+            <p class="h4 mb-3 heading-text">Our Services</p>
             <div class="row">
                 <div class="col-sm-4">
                     <div class="card" style="width: 18rem;">
@@ -93,7 +101,7 @@
             </div>
         </div>
           
-        <div id="bookAppointmentSection" class="container container-header mt-3">
+        <div id="BookAnAppointment" class="container container-header mt-3 section">
               
             <p class="h4 mb-3 heading-text">Book your appointment</p>
 
@@ -161,7 +169,7 @@
         </div>
 
 
-        <div class="container mt-5" id="aboutUsSection">
+        <div id="AboutUs" class="container mt-5 section">
             <a href="#aboutUs" class="btn btn-secondary w-100" data-bs-toggle="collapse" aria-expanded="false">About Us</a>
             <div id="aboutUs" class="collapse">
                 <div class="card">
@@ -238,6 +246,11 @@
 </html> 
 
 <script>
+    /* highlight the navbar menu item corresponding to the currently viewed section */
+    $(document).ready(function () {
+        $('body').scrollspy({ target: '.navbar', offset: 50 });
+    });
+    
     var tooltip = document.querySelector('[data-bs-toggle="tooltip"]');
     new bootstrap.Tooltip(tooltip);
 
