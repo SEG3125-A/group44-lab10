@@ -10,7 +10,9 @@
 * 
 
 >Zechen Zhou
-* 
+* Made the navbar stay at the top and highlighted which page is being viewed
+* Adjusted datetimepicker to hide dates and/or times when the shop is closed
+* #### TO-DO: ADD ICONS
 
 ### 5. Snapshots of the website: 
   ![](/Docs/Images/snapshot1.png)
