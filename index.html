@@ -14,6 +14,14 @@
     <script src="./assets/js/bootstrap.bundle.min.js"></script>
 
     <script src="./assets/js/jquery-3.2.1.slim.min.js"></script>
+
+    <!-- Include datetimepicker CSS -->
+    <link href="./assets/css/jquery.datetimepicker.min.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css"> -->
+
+    <!-- Include datetimepicker JS -->
+    <script src="./assets/js/jquery.datetimepicker.full.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script> -->
 </head>
 
 <!-- data-spy, data-target, and data-offset attributes are added to enable scrollspy. -->
@@ -111,11 +119,11 @@
 
     <div id="BookAnAppointment" class="container container-header mt-3 section">
 
-        <p class="h4 mb-3 heading-text">Book your appointment</p>
+        <p class="h4 mb-3 heading-text">Book an appointment</p>
 
         <form class="needs-validation" id="appointmentForm" onsubmit="return false" novalidate>
 
-            <p class="h6 mt-3">Select your desired services: </p>
+            <p class="h6 mt-3">Select your desired services</p>
             <div class="list-group mt-2" style="font-size: 15px; width: max-content;">
                 <label class="list-group-item" for="color">
                     <input class="form-check-input me-1" type="checkbox" id="color"> Color
@@ -128,7 +136,7 @@
                 </label>
             </div>
 
-            <p class="h6 mt-3">Select an expert: </p>
+            <p class="h6 mt-3">Select an expert</p>
             <div class="list-group mt-2" style="font-size: 15px; width: max-content;">
                 <label class="list-group-item" for="aliceColor"><input class="form-check-input me-1" type="radio"
                         name="aliceColor">Alice (Expert) +$30.00</label>
@@ -139,8 +147,8 @@
             </div>
 
             <div class="col-3 mt-2">
-                <label class="h6" for="dateTimeInput">Select a date and time:</label>
-                <input class="form-control" type="datetime-local" id="dateTimeInput" name="dateTimeInput">
+                <label class="h6" for="datetimepicker">Select Date and Time</label>
+                <input class="form-control" type="text" id="datetimepicker">
             </div>
 
             <div class="col-3 mt-2" id="contactInfo">
@@ -265,6 +273,23 @@
     /* highlight the navbar menu item corresponding to the currently viewed section */
     $(document).ready(function () {
         $('body').scrollspy({ target: '.navbar', offset: 50 });
+
+        // Initialize datetimepicker
+        $('#datetimepicker').datetimepicker({
+            format: 'Y-m-d H:i', // Customize the format as needed
+            minDate: new Date(), // Set today as minimum date
+            disabledWeekDays: [0], // 0 corresponds to Sunday, disable it
+
+            defaultDate: new Date(), // Set today as default date
+            defaultTime: '10:00', // If input value is empty, set 10:00 as default time
+            value: new Date().getDay + '10:00', // Set the initial value on the datetimepicker using default date and time
+            allowTimes: generateAllowTimes(10, 0, 18, 0), // Default allowTimes
+
+            // Set allow times depending on the day selected
+            onChangeDateTime: setAllowTimes,
+            onShow: setAllowTimes
+
+        })
     });
 
     var tooltip = document.querySelector('[data-bs-toggle="tooltip"]');
@@ -285,4 +310,65 @@
         }
         form.classList.add('was-validated');
     }, false);
+
+    /* Set allow times depending on the day selected */
+    var setAllowTimes = function (selectedDateTime) {
+        var allowedTimeSlots;
+
+        switch (selectedDateTime.getDay()) {
+            // Monday to Thursday: 10:00 - 18:00
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+                allowedTimeSlots = generateAllowTimes(10, 0, 18, 0);
+                break;
+
+            // Friday: 10:00 - 17:00
+            case 5:
+                allowedTimeSlots = generateAllowTimes(10, 0, 17, 0);
+                break;
+
+            // Saturday: 9:00 - 17:00
+            case 6:
+                allowedTimeSlots = generateAllowTimes(9, 0, 17, 0);
+                break;
+        }
+
+        // Update allowTimes in datetimepicker options
+        // 'this' is jquery object datetimepicker
+        this.setOptions({
+            allowTimes: allowedTimeSlots
+        })
+    };
+
+    /* Generate allow times for appointment */
+    function generateAllowTimes(startHour, startMinute, endHour, endMinute) {
+        var times = [];
+        for (var h = startHour; h < endHour; h++) {
+            for (var m = 0; m < 60; m += 15) {
+
+                // Skip the time slot if current minute is greater than m
+                // eg. now is 9:05, then 9:00 is not available, next available time slot is 9:15
+                // if (startMinute > m && startHour === h) {
+                //     continue;
+                // }
+
+                // Concatenate hour and minute
+                var time = (h < 10 ? '0' : '') + h + ':' + (m === 0 ? '00' : m);
+
+                // The last available appointment of the day is 45 minutes before the end time
+                if (endMinute === 0) {
+                    if ((h === endHour - 1 && m <= 15) || (h < endHour - 1)) {
+                        times.push(time);
+                    }
+                } else if (endMinute !== 0) {
+                    if (h < endHour && m <= endMinute - 45 + 60) {
+                        times.push(time);
+                    }
+                }
+            }
+        }
+        return times;
+    }
 </script>
