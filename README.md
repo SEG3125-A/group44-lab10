@@ -7,7 +7,9 @@
 ### 4. Each member's contribution:
 
 >Lisa Korolyov
-* 
+* Restructured Appointment Booking section, added some formatting to different sections of the page
+* Added Payment Details section
+* Added regex to phone number, email, credit card, cvv, and other input fields
 
 >Zechen Zhou
 * Made the navbar stay at the top and highlighted which page is being viewed
@@ -16,3 +18,4 @@
 
 ### 5. Snapshots of the website: 
   ![](/Docs/Images/snapshot1.png)
+  ![](/Docs/Images/snapshot2.png)
