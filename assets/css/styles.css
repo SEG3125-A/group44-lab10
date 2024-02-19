@@ -42,3 +42,13 @@
 .learn-more-button:hover {
     text-decoration: underline;
 }
+
+.book-appt-col {
+    margin: 20px;
+    padding: 10px;
+    height: 93%;
+}
+
+.side-padding-10 {
+    padding: 0px 10px;
+}

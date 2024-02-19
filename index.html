@@ -22,6 +22,15 @@
     <!-- Include datetimepicker JS -->
     <script src="./assets/js/jquery.datetimepicker.full.min.js"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script> -->
+
+    <!-- Credit card mask CSS -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/credit.css" />
+
+    <!-- Credit card mask JS -->
+    <script type="text/javascript" src="./assets/js/credit.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.8/jquery.inputmask.min.js" integrity="sha512-efAcjYoYT0sXxQRtxGY37CKYmqsFVOIwMApaEbrxJr4RwqVVGw8o+Lfh/+59TU07+suZn1BWq4fDl5fdgyCNkw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 </head>
 
 <!-- data-spy, data-target, and data-offset attributes are added to enable scrollspy. -->
@@ -53,6 +62,12 @@
             </div>
         </div>
     </nav>
+    <div id="successToast" class="toast align-items-center text-white bg-success border-0 w-100" role="alert"
+        data-animation="true" aria-live="assertive" aria-atomic="true">
+        <div class="toast-body text-center w-100 h6">
+            Appointment booked successfully.
+        </div>
+    </div>
     <div id="OurService" class="container container-header mt-3 section">
         <p class="h4 mb-3 heading-text">Our Services</p>
         <div class="row">
@@ -115,58 +130,80 @@
         </div>
     </div>
 
-    <div id="BookAnAppointment" class="container container-header mt-3 section">
+    <div id="BookAnAppointment" class="container container-header mt-5 bg-light">
 
-        <p class="h4 mb-3 heading-text">Book an appointment</p>
+        <p class="h4 mb-5 heading-text">Book an appointment</p>
 
         <form class="needs-validation" id="appointmentForm" onsubmit="return false" novalidate>
 
-            <p class="h6 mt-3">Select your desired services</p>
-            <div class="list-group mt-2" style="font-size: 15px; width: max-content;">
-                <label class="list-group-item" for="color">
-                    <input class="form-check-input me-1" type="checkbox" id="color"> Color
-                    <img src="./assets/icon/color_icon.png" alt="color icon" style="width:32px;">
-                </label>
-                <label class="list-group-item" for="cut">
-                    <input class="form-check-input me-1" type="checkbox" id="cut"> Cut
-                    <img src="./assets/icon/hair_cut_icon.png" alt="hair cut icon" style="width:32px;">
-                </label>
-                <label class="list-group-item" for="treatment">
-                    <input class="form-check-input me-1" type="checkbox" id="treatment"> Treatment
-                    <img src="./assets/icon/hair_treatment_icon.png" alt="hair treatment icon" style="width:32px;">
-                </label>
-            </div>
 
-            <p class="h6 mt-3">Select an expert</p>
-            <div class="list-group mt-2" style="font-size: 15px; width: max-content;">
-                <label class="list-group-item" for="aliceColor"><input class="form-check-input me-1" type="radio"
-                        name="aliceColor">Alice (Expert) +$30.00</label>
-                <label class="list-group-item" for="bobColor"><input class="form-check-input me-1" type="radio"
-                        name="bobColor">Bob (Intermediate) +$10.00</label>
-                <label class="list-group-item" for="charlieColor"><input class="form-check-input me-1" type="radio"
-                        name="charlieColor">Charlie (Junior)</label>
+          <div class="row text-center text-primary" style="font-weight: 500;">
+            <div class="col-sm">
+              Appointment Details
             </div>
-
-            <div class="col-3 mt-2">
-                <label class="h6" for="datetimepicker">Select Date and Time</label>
-                <input class="form-control" type="text" id="datetimepicker">
+            <div class="col-sm">
+              Contact Info
             </div>
+            <div class="col-sm">
+              Payment Details
+            </div>
+          </div>
+          <div class="row" style="justify-content: center;">
+            <div class="col-sm">
+              <div class="bg-white book-appt-col">
+                <p class="h6">Select your desired services</p>
+                <div class="list-group mt-2" style="font-size: 15px; width: max-content;">
+                    <label class="list-group-item" for="color">
+                        <input class="form-check-input me-1" type="checkbox" id="color" name="service" value="Color"> Color
+                        <img src="./assets/icon/color_icon.png" alt="color icon" style="width:32px;">
+                    </label>
+                    <label class="list-group-item" for="cut">
+                        <input class="form-check-input me-1" type="checkbox" id="cut" name="service" value="Cut"> Cut
+                        <img src="./assets/icon/hair_cut_icon.png" alt="hair cut icon" style="width:32px;">
+                    </label>
+                    <label class="list-group-item" for="treatment">
+                        <input class="form-check-input me-1" type="checkbox" id="treatment" name="service" value="Treatment"> Treatment
+                        <img src="./assets/icon/hair_treatment_icon.png" alt="hair treatment icon" style="width:32px;">
+                    </label>
+                </div>
 
-            <div class="col-3 mt-2" id="contactInfo">
+                <p class="h6 mt-3">Select an expert</p>
+                <div class="list-group mt-2 side-padding-10" style="font-size: 15px; width: max-content;">
+                    <label class="list-group-item" for="expertAlice">
+                      <input class="form-check-input me-1" type="radio" id="expertAlice" name="expert" value="Alice (Expert)">Alice (Expert) +$30.00
+                    </label>
+                    <label class="list-group-item" for="expertBob">
+                      <input class="form-check-input me-1" type="radio" id="expertBob" name="expert" value="Bob (Intermediate)">Bob (Intermediate) +$10.00
+                    </label>
+                    <label class="list-group-item" for="expertCharlie">
+                      <input class="form-check-input me-1" type="radio" id="expertCharlie" name="expert" value="Charlie (Junior)">Charlie (Junior)
+                    </label>
+                </div>
+
+                <div style="width: max-content" class="mt-2">
+                    <label class="h6" for="datetimepicker">Select Date and Time</label>
+                    <input class="form-control" type="text" id="datetimepicker" name="dateTimePicker">
+                </div>                
+              </div>
+
+
+            </div>
+            <div class="col-sm">
+              <div class="bg-white book-appt-col">
                 <label for="firstName" class="h6 me-1">First name</label>
-                <input type="text" id="firstName" class="form-control" style="text-transform: capitalize;" required>
+                <input type="text" id="firstName" class="form-control" pattern="^[a-zA-Z]+$" style="text-transform: capitalize;" required>
                 <div class="invalid-feedback">
-                    First name is required.
+                    First name required (characters only).
                 </div>
 
                 <label for="lastName" class="h6 mt-3">Last name</label>
-                <input type="text" id="lastName" class="form-control" style="text-transform: capitalize;" required>
+                <input type="text" id="lastName" class="form-control" pattern="^[a-zA-Z]+$" style="text-transform: capitalize;" required>
                 <div class="invalid-feedback">
-                    Last name is required.
+                    Last name required (characters only).
                 </div>
 
                 <label for="phone" class="h6 mt-3">Phone number</label>
-                <input type="tel" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" maxlength="12" class="form-control"
+                <input type="text" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" maxlength="14" class="form-control phone-number-input"
                     required data-bs-toggle="tooltip" data-bs-placement="top" title="Use format: 000-000-0000">
                 <div class="invalid-feedback">
                     Please enter a phone number in the format <em>000-000-0000</em>
@@ -174,26 +211,60 @@
 
                 <label for="email" class="h6 mt-3"
                     pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$">Email</label><!--regex pattern taken from w3schools.com-->
-                <input type="email" id="email" class="form-control" required>
+                <input type="text" id="email" class="form-control" required>
                 <div class="invalid-feedback">
                     Please enter a valid email.
+                </div>                
+              </div>
+                
+            </div>
+            <div class="col-sm">
+              <div class="bg-white book-appt-col">
+                <label for="cardholderFirstName" class="h6 me-1">Cardholder first name</label>
+                <input type="text" id="cardholderFirstName" class="form-control" pattern="^[a-zA-Z]+$" style="text-transform: capitalize;" required>
+                <div class="invalid-feedback">
+                    Cardholder's first name required (characters only).
                 </div>
-            </div>
 
-            <div class="col-3 mt-2" id="paymentDetails" style="color: red;">
-                TODO Lisa - Payment details
+                <label for="cardholderLastName" class="h6 mt-3">Cardholder last name</label>
+                <input type="text" id="cardholderLastName" class="form-control" pattern="^[a-zA-Z]+$" style="text-transform: capitalize;" required>
+                <div class="invalid-feedback">
+                  Cardholder's last name required (characters only).
+                </div>
+
+                <label for="creditCard" class="h6 mt-3">Credit card number</label>
+                <input type="text"  maxlength="19" id="creditCard" class="form-control credit" pattern="\d{4}\d{4}\d{4}\d{4}"
+                    required>
+                <div class="invalid-feedback">
+                    Please enter a credit card number.
+                </div>
+
+                <label for="cvv" class="h6 mt-3"
+                  >CVV</label><!--regex pattern taken from w3schools.com-->
+                <input type="text" id="cvv" class="form-control" required pattern="\d{3}" maxlength="3" data-bs-toggle="tooltip" data-bs-placement="top" title="3-digit number on the back of your card">
+                <div class="invalid-feedback">
+                    Please enter a valid CVV number.
+                </div>                  
+              </div>
+
+ 
             </div>
+          </div>
+          <div class="row">
+            <div class="container body-font" style="height: max-content">
+                <input type="submit" id="bookAppointmentButton" class="btn btn-primary" style="float: right;">
+            </div>            
+          </div>
+
+
         </form>
 
-        <div class="container body-font mt-4">
-            <button type="button" id="bookAppointmentButton" data-bs-toggle="modal" data-bs-target="#appointmentModal"
-                class="btn btn-primary">Book appointment</button>
-        </div>
+
     </div>
 
-    <div id="AboutUs" class="container container-header mt-3 section">
+    <div id="AboutUs" class="container container-header mt-5 bg-light">
         <div class="container">
-            <p class="h4 mb-3 heading-text">Abou Us</p>
+            <p class="h4 mb-3 heading-text">About Us</p>
             <br>
 
             <div class="row">
@@ -205,7 +276,7 @@
                     123 Laurier Ave, Ottawa, ON
                 </div>
 
-                <div class="col-md-3">
+                <div class="col-md-3" style="">
                     <strong>Hours of operation:</strong>
                     <!-- https://www.flaticon.com/free-icon/shop_5257219?term=opening+hour&page=1&position=69&origin=search&related_id=5257219 -->
                     <img src="./assets/icon/shop_open_hour_icon.png" alt="shop open hour icon" style="width:32px;">
@@ -263,26 +334,18 @@
         </div>
     </div>
 
-    <div id="appointmentModal" class="modal" tabindex="-1" role="dialog">
-        <div id="successToast" class="toast align-items-center text-white bg-success border-0 w-100" role="alert"
-            data-animation="true" aria-live="assertive" aria-atomic="true">
-            <div class="toast-body text-center w-100 h6">
-                Appointment booked successfully.
-            </div>
-        </div>
+    <!-- <div id="apptSummaryModal" class="modal" tabindex="-1" role="dialog">
+
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header bg-light">
-                    <span class="modal-title h5">Confirm appointment</span>
+                    <span class="modal-title h5">Summary</span>
                 </div>
-                <div class="modal-body">
-                </div>
-                <div class="modal-footer">
-                    <button id="submitFormButton" class="btn btn-success" data-dismiss="alert">Confirm</button>
+                <div class="modal-body" id="apptSummaryModalBody">
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <p class="signature mt-5">Website designed by Group 44 (Lisa, Zechen)</p>
 </body>
@@ -311,9 +374,15 @@
 
         })
     });
+    jQuery(function ( $ ) {
+        $(".credit").credit();
+    });
 
     var tooltip = document.querySelector('[data-bs-toggle="tooltip"]');
     new bootstrap.Tooltip(tooltip);
+
+    var cvvTooltip = document.getElementById('cvv');
+    new bootstrap.Tooltip(cvvTooltip);
 
     var form = document.querySelector('.needs-validation');
     var toastId = document.querySelector('.toast');
@@ -325,8 +394,61 @@
             event.stopPropagation();
         }
         else {
-            toast.show();
-            setTimeout(() => { form.submit(); }, 2000);
+          // Toast and Summary modal broke
+
+          // var modalBody = document.getElementById('apptSummaryModalBody');
+
+          // modalBody.appendChild('p', 'Services: ');
+          // console.log(`modalBody == null: ${modalBody == null}`);
+
+          // if (document.getElementById('color').checked) {
+          //   modalBody.appendChild('p', '\tColor');
+          // }
+
+          // if (document.getElementById('cut').checked) {
+          //   modalBody.appendChild('p', '\tCut');
+          // }
+
+          // if (document.getElementById('treatment').checked) {
+          //   modalBody.appendChild('p', '\tTreatment');
+          // }
+          // modalBody.appendChild('p', '\nExpert: ');
+          // modalBody.appendChild('p', `${document.querySelector('input[name="expert"]:checked').value}`);
+          
+          // modalBody.appendChild('p', '\nDate & Time:');
+          // modalBody.appendChild('p', `${document.querySelector('input[name="dateTimePicker"]').value}`);
+
+          // modalBody.appendChild('p', '\n\nFirst name: ');
+          // modalBody.appendChild('p', document.getElementById('firstName').value);
+
+          // modalBody.appendChild('p', '\n\nLast name: ');
+          // modalBody.appendChild('p', document.getElementById('lastName').value);
+
+          // modalBody.appendChild('p', '\n\nPhone number: ');
+          // modalBody.appendChild('p', document.getElementById('phone').value);
+
+          // modalBody.appendChild('p', '\n\nEmail: ');
+          // modalBody.appendChild('p', document.getElementById('email').value);
+
+          // modalBody.appendChild('p', '\n\nCardholder first name: ');
+          // modalBody.appendChild('p', document.getElementById('cardholderFirstName').value);
+
+          // modalBody.appendChild('p', '\nCardholder last name: ');
+          // modalBody.appendChild('p', document.getElementById('cardholderLastName').value);
+
+          // modalBody.appendChild('p', '\nCredit card: ');
+          // modalBody.appendChild('p', document.getElementById('creditCard').value);
+
+          // modalBody.appendChild('p', '\nCVV: ');
+          // modalBody.appendChild('p', document.getElementById('cvv').value);
+
+          // document.getElementById('apptSummaryModal').show();
+
+          
+          toast.show();
+
+          setTimeout(() => { form.submit(); }, 1000);
+
         }
         form.classList.add('was-validated');
     }, false);
