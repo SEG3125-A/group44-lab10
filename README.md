@@ -4,14 +4,3 @@
 ### 1. Group number: 44
 ### 2. Group members: Lisa Korolyov, Zechen Zhou
 ### 3. Link to the GitHub repository: https://github.com/SEG3125-A/group44-lab10
-### 4. Each member's contribution:
-
->Lisa Korolyov
-*  
-
->Zechen Zhou
-*  
-
-### 5. Snapshots of the website: 
-  ![](/Docs/Images/snapshot1.png)
-
