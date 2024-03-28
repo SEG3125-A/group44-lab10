@@ -347,12 +347,18 @@
         </div>
     </div> -->
 
-    <iframe
+    <button id="botButton" class="btn btn-primary" style="position: fixed; bottom: 50px; right: 30px; border-radius: 29px; padding-right: 20px;"><img src="./assets/icon/bot.png" alt="email icon" style="width:32px; margin-right: 9px; margin-bottom: 5px;">Need help?</button>
+    <button id="closeBotButton" class="btn hide" style="position: fixed; bottom: 479px; right: 30px; background-color: #2B303E; border-radius: 29px;"><img src="./assets/icon/close.png" alt="email icon" style="width:20px; margin-top: 6px; margin-bottom: 6px;"></button>
+    <iframe id="bot"
+    style="position: fixed; bottom: 45px; right: 25px; border-radius: 29px; border: 1px solid black;"
+    class="hide"
     allow="microphone;"
     width="350"
     height="430"
     src="https://console.dialogflow.com/api-client/demo/embedded/455f5350-9adf-4805-9df0-6e88a1f7fa06">
+        
     </iframe>
+
 
     <p class="signature mt-5">Website designed by Group 44 (Lisa, Zechen)</p>
 </body>
@@ -360,6 +366,23 @@
 </html>
 
 <script>
+    var botButton = document.getElementById("botButton");
+    var bot = document.getElementById("bot");
+    var closeBotButton = document.getElementById('closeBotButton');
+
+    botButton.addEventListener('click', () => {
+        botButton.classList.add("hide");
+        bot.classList.remove("hide");
+        closeBotButton.classList.remove('hide');
+    });
+
+    closeBotButton.addEventListener('click', () => {
+        botButton.classList.remove("hide");
+        bot.classList.add("hide");
+        closeBotButton.classList.add('hide');
+    })
+
+
     /* highlight the navbar menu item corresponding to the currently viewed section */
     $(document).ready(function () {
         $('body').scrollspy({ target: '.navbar', offset: 50 });

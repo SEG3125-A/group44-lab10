@@ -52,3 +52,7 @@
 .side-padding-10 {
     padding: 0px 10px;
 }
+
+.hide {
+    display: none !important;
+}
